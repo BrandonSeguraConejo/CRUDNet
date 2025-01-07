@@ -9,6 +9,7 @@
         Lista contacto
     </div>
     <div class="card-body">
+        <a asp-action="Guardar" asp-contdoller="Mantenedor" class="btn-success">Nuevo contacto</a>
     <hr />
         <table class="table table-bordered">
             <thead>
@@ -21,19 +22,19 @@
             <tbody>
                 @foreach(var item in Model)
                 {
-                    <tr>
-
-                    
+                    <tr>    
                         <td>@item.Nombre</td>
                         <td>@item.Telefono</td>
                         <td>@item.Correo</td>
+                        <td>  <a asp-action="Editar" asp-contdoller="Mantenedor" class="btn-primary btn-sm" asp-route-IdContacto="@item.IdContacto">Editar</a></td>
+                        <td><a asp-action="Eliminar" asp-contdoller="Mantenedor" class="btn-danger btn-sm" asp-route-IdContacto="@item.IdContacto">Eliminar</a></td>
                     </tr>
                 }
             </tbody>
 
         </table>
 
-        <a asp-action="Guardar" asp-contdoller="Mantenedor" class="btn-success">Nuevo contacto</a>
+      
     </div>
 </div>
 

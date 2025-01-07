@@ -82,7 +82,6 @@ namespace test.Models.Datos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
 
-
                 }
                 rpta = true;
             }
@@ -111,7 +110,6 @@ namespace test.Models.Datos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
 
-
                 }
                 rpta = true;
             }
@@ -134,7 +132,7 @@ namespace test.Models.Datos
                 using (var conexion = new SqlConnection(cn.getCadenaSql()))
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand("sp_EditarContacto", conexion);
+                    SqlCommand cmd = new SqlCommand("sp_EliminarContacto", conexion);
                     cmd.Parameters.AddWithValue("IdContacto", IdContacto);
                    
                     cmd.CommandType = CommandType.StoredProcedure;

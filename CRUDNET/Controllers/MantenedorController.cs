@@ -32,5 +32,40 @@ namespace test.Controllers
             return View();
         }
 
+        public IActionResult Editar(int IdContacto)
+        {
+            var oContacto = _ContactoDatos.Obtener(IdContacto);
+            return View(oContacto);
+        }
+        [HttpPost]
+        public IActionResult Editar(ContactoModel oContacto)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var rpt = _ContactoDatos.Editar(oContacto);
+
+            if (rpt)
+                return RedirectToAction("Listar");
+            return View();
+        }
+
+        public IActionResult Eliminar(int IdContacto)
+        {
+            var oContacto = _ContactoDatos.Obtener(IdContacto);
+            return View(oContacto);
+        }
+        [HttpPost]
+        public IActionResult Eliminar(ContactoModel oContacto)
+        {
+          
+
+            var rpt = _ContactoDatos.Eliminar(oContacto.IdContacto);
+
+            if (rpt)
+                return RedirectToAction("Listar");
+            return View();
+        }
+
     }
 }
