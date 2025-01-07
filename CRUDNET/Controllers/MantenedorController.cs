@@ -22,7 +22,11 @@ namespace test.Controllers
         [HttpPost]
         public IActionResult Guardar(ContactoModel oContacto)
         {
+            if(!ModelState.IsValid)
+                return View();
+
             var rpt= _ContactoDatos.Guardar(oContacto);
+
             if(rpt)
                 return RedirectToAction("Listar");
             return View();
